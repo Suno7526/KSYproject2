@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="exchangeRate.css">
+</head>
+<body>
+    <img src="https://images-na.ssl-images-amazon.com/images/I/510WmeXkLXL.png" alt="" class="money-img" />
+    <h1>환율 계산기</h1>
+    <p>아래에 금액을 입력 해주세요. </p>
+
+    <div class="container">
+      <div class="currency">
+        <select id="currency-one">
+          <option value="AED">AED</option>
+          <option value="ARS">ARS</option>
+          <option value="AUD">AUD</option>
+          <option value="BGN">BGN</option>
+          <option value="BRL">BRL</option>
+          <option value="CNY">CNY</option>
+          <option value="EUR">EUR</option>
+          <option value="JPY">JPY</option>
+          <option value="KRW">KRW</option>
+          <option value="USD" selected>USD</option>
+        </select>
+        <img id="flag-one" src="" alt="Flag 1">
+        <input type="number" id="amount-one" placeholder="0" value="1" />
+      </div>
+
+      <div class="swap-rate-container">
+        <button class="btn" id="swap">
+          변환
+        </button>
+        <div class="rate" id="rate"></div>
+      </div>
+
+      <div class="currency">
+        <select id="currency-two">
+          <option value="AED">AED</option>
+          <option value="ARS">ARS</option>
+          <option value="AUD">AUD</option>
+          <option value="BGN">BGN</option>
+          <option value="BRL">BRL</option>
+          <option value="CNY">CNY</option>
+          <option value="EUR" selected>EUR</option>
+          <option value="JPY">JPY</option>
+          <option value="KRW">KRW</option>
+          <option value="USD">USD</option>
+        </select>
+        <img id="flag-two" src="" alt="Flag 2">
+        <input type="number" id="amount-two" placeholder="0" />
+      </div>
+      <script>
+        const currencyOneSelect = document.getElementById("currency-one");
+        const currencyTwoSelect = document.getElementById("currency-two");
+        const flagOne = document.getElementById("flag-one");
+        const flagTwo = document.getElementById("flag-two");
+
+        // 매핑된 국기 이미지 경로를 담은 객체
+        const flagImageMap = {
+            AED: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPrgDr%2FbtsxZxEz2Yt%2FIFi8k7iZYNixMx7sQ6YKN0%2Fimg.png",
+            ARS: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FDIjRL%2FbtsxLj1mV73%2FsSyAWyKgpYjWlAlhVN60r1%2Fimg.png",
+            AUD: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbRzdRS%2FbtsxUbIGcuS%2FZ3qVSKwOidRlvzYRo14kF0%2Fimg.png",
+            BGN: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FOFGXc%2Fbtsx2wLUcWW%2FEPoWgte62o2I8IrroiYXJK%2Fimg.png",
+            BRL: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsUi0a%2Fbtsx3OyLxgq%2FIc0gBNk9fpm8FVeMdJjVLk%2Fimg.png",
+            CNY: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FRAHTb%2FbtsxvGCFkRt%2FRYjlJeQ36HGlvmOciptgZK%2Fimg.png",
+            EUR: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FGFZHr%2Fbtsx0MaNX97%2FhyukT8qgI8MS7DkusOgAV0%2Fimg.png",
+            JPY: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbbDQUY%2FbtsxtWlzqgc%2FOaiVtYMdtaSK208bfiPMoK%2Fimg.png",
+            KRW: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMQirv%2Fbtsx1YaOzqu%2FlHVGeQKk0oOllcA3dDGnMk%2Fimg.png",
+            USD: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb06l7b%2Fbtsx0MIxv1p%2FkqNFUxNBzbO2nEDA2fieJ0%2Fimg.png",
+            // 다른 통화에 대한 이미지 경로 추가
+        };
+
+        // 초기 화면 로드 시 국기 이미지 설정
+        flagOne.src = flagImageMap[currencyOneSelect.value];
+        flagTwo.src = flagImageMap[currencyTwoSelect.value];
+        currencyOneSelect.addEventListener("change", function () {
+            const selectedCurrency = currencyOneSelect.value;
+            flagOne.src = flagImageMap[selectedCurrency];
+        });
+
+        currencyTwoSelect.addEventListener("change", function () {
+            const selectedCurrency = currencyTwoSelect.value;
+            flagTwo.src = flagImageMap[selectedCurrency];
+        });
+    </script>
+      <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78575" target='_blank'>
+        <div class="newsletter">
+            <h2>뉴스레터 1</h2>
+            <img src="https://emg.yna.co.kr/etc/inner/KR/2023/10/11/AKR20231011041100002_01_i.jpg" alt="뉴스 이미지 1">
+            <p>이 뉴스레터는 최신 소식을 전해드립니다.</p>
+        </div>
+    </a>
+
+    <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78564" target='_blank'>
+        <div class="newsletter">
+            <h2>뉴스레터 2</h2>
+            <img src="https://www.kita.net/board/imageSrc.do?path=20231011&physical=39985AE0CDA4438AB2EE122CEFA58BAE&contentType=image/jpeg" alt="뉴스 이미지 2">
+            <p>이 뉴스레터는 다른 주제의 소식을 전해드립니다.</p>
+        </div>
+    </a>
+    </div>
+<script type="text/javascript" src="exchangeRate.js"></script> 
+</body>
+</html>
