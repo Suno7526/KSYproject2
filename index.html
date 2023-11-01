@@ -73,6 +73,27 @@
             // 다른 통화에 대한 이미지 경로 추가
         };
 
+        // 변환 버튼 클릭 시 이미지 변환
+        flagOne.src = flagImageMap[currencyOneSelect.value];
+        flagTwo.src = flagImageMap[currencyTwoSelect.value];
+
+        currencyOneSelect.addEventListener("change", function(){
+            const selectedCurrency = currencyOneSelect.value;
+            flagOne.src = flagImageMap[selectedCurrency];
+        });
+
+        currencyTwoSelect.addEventListener("change", function(){
+            const selectedCurrency = currencyTwoSelect.value;
+            flagTwo.src = flagImageMap[selectedCurrency];
+        });
+
+        const swapButton = document.getElementById('swap');
+        swapButton.addEventListener('click', function(){
+            const temp = flagOne.src;
+            flagOne.src = flagTwo.src;
+            flagTwo.src = temp;
+        });
+
         // 초기 화면 로드 시 국기 이미지 설정
         flagOne.src = flagImageMap[currencyOneSelect.value];
         flagTwo.src = flagImageMap[currencyTwoSelect.value];
