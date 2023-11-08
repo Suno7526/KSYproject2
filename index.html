@@ -7,52 +7,62 @@
     <link rel="stylesheet" href="exchangeRate.css">
 </head>
 <body>
-    <img src="https://images-na.ssl-images-amazon.com/images/I/510WmeXkLXL.png" alt="" class="money-img" />
+    <img src="https://images-na.ssl-images-amazon.com/images/I/510WmeXkLXL.png" alt="" class="money-img" id="main" />
     <h1>환율 계산기</h1>
-    <p>아래에 금액을 입력 해주세요. </p>
+    <p id="insert">아래에 금액을 입력 해주세요. </p>
 
-    <div class="container">
-      <div class="currency">
-        <select id="currency-one">
-          <option value="AED">아랍(AED)</option>
-          <option value="ARS">아르헨티나(ARS)</option>
-          <option value="AUD">오스트레일리아(AUD)</option>
-          <option value="BGN">불가리아(BGN)</option>
-          <option value="BRL">브라질(BRL)</option>
-          <option value="CNY">중국(CNY)</option>
-          <option value="EUR">유럽(EUR)</option>
-          <option value="JPY">일본(JPY)</option>
-          <option value="KRW">한국(KRW)</option>
-          <option value="USD" selected>미국(USD)</option>
-        </select>
-        <img id="flag-one" src="" alt="Flag 1">
-        <input type="number" id="amount-one" placeholder="0" value="1" />
+  <nav>
+    <div>
+      <a href="#main">환율계산</a>
+      <a href="#section2">뉴스</a>
+      <a href="#section3">도움말</a>
+    </div>
+  </nav>
+
+    <!-- <h2>Section 1</h2> -->
+      <div class="container">
+        <div class="currency">
+          <select id="currency-one">
+            <option value="AED">아랍(AED)</option>
+            <option value="ARS">아르헨티나(ARS)</option>
+            <option value="AUD">오스트레일리아(AUD)</option>
+            <option value="BGN">불가리아(BGN)</option>
+            <option value="BRL">브라질(BRL)</option>
+            <option value="CNY">중국(CNY)</option>
+            <option value="EUR">유럽(EUR)</option>
+            <option value="JPY">일본(JPY)</option>
+            <option value="KRW">한국(KRW)</option>
+            <option value="USD" selected>미국(USD)</option>
+          </select>
+          <img id="flag-one" src="" alt="Flag 1">
+          <input type="number" id="amount-one" placeholder="0" value="1" style=" border: 1px solid gray; border-width: 0 0 1px;"/>
+        </div>
+
+        <div class="swap-rate-container">
+          <button class="btn" id="swap">
+            변환
+          </button>
+          <div class="rate" id="rate"></div>
+        </div>
+
+        <div class="currency">
+          <select id="currency-two">
+            <option value="AED">아랍(AED)</option>
+            <option value="ARS">아르헨티나(ARS)</option>
+            <option value="AUD">오스트레일리아(AUD)</option>
+            <option value="BGN">불가리아(BGN)</option>
+            <option value="BRL">브라질(BRL)</option>
+            <option value="CNY">중국(CNY)</option>
+            <option value="EUR" selected>유럽(EUR)</option>
+            <option value="JPY">일본(JPY)</option>
+            <option value="KRW">한국(KRW)</option>
+            <option value="USD">미국(USD)</option>
+          </select>
+          <img id="flag-two" src="" alt="Flag 2">
+          <input type="number" id="amount-two" placeholder="0" style=" border: 1px solid gray; border-width: 0 0 1px;"/>
+        </div>
       </div>
-
-      <div class="swap-rate-container">
-        <button class="btn" id="swap">
-          변환
-        </button>
-        <div class="rate" id="rate"></div>
-      </div>
-
-      <div class="currency">
-        <select id="currency-two">
-          <option value="AED">아랍(AED)</option>
-          <option value="ARS">아르헨티나(ARS)</option>
-          <option value="AUD">오스트레일리아(AUD)</option>
-          <option value="BGN">불가리아(BGN)</option>
-          <option value="BRL">브라질(BRL)</option>
-          <option value="CNY">중국(CNY)</option>
-          <option value="EUR" selected>유럽(EUR)</option>
-          <option value="JPY">일본(JPY)</option>
-          <option value="KRW">한국(KRW)</option>
-          <option value="USD">미국(USD)</option>
-        </select>
-        <img id="flag-two" src="" alt="Flag 2">
-        <input type="number" id="amount-two" placeholder="0" />
-      </div>
-
+      <br>
       <script>
         const currencyOneSelect = document.getElementById("currency-one");
         const currencyTwoSelect = document.getElementById("currency-two");
@@ -108,43 +118,67 @@
             flagTwo.src = flagImageMap[selectedCurrency];
         });
     </script>
-      <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78575" target='_blank'>
-        <div class="newsletter">
-            <!-- <h2>뉴스레터 1</h2> -->
-            <img src="https://emg.yna.co.kr/etc/inner/KR/2023/10/11/AKR20231011041100002_01_i.jpg" alt="뉴스 이미지 1">
-            <p>원/달러 환율, 하락 출발…美 긴축완화·中 경기부양 기대감</p>
-        </div>
-    </a>
+  
+    <section id="section2">
+        <!-- <h2>Section 2</h2> -->
+        <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78575" target='_blank'>
+          <div class="newsletter">
+              <!-- <h2>뉴스레터 1</h2> -->
+              <img src="https://emg.yna.co.kr/etc/inner/KR/2023/10/11/AKR20231011041100002_01_i.jpg" alt="뉴스 이미지 1">
+              <p>원/달러 환율, 하락 출발…美 긴축완화·中 경기부양 기대감</p>
+          </div>
+      </a>
+    
+      <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78564" target='_blank'>
+          <div class="newsletter">
+              <!-- <h2>뉴스레터 2</h2> -->
+              <img src="https://www.kita.net/board/imageSrc.do?path=20231011&physical=39985AE0CDA4438AB2EE122CEFA58BAE&contentType=image/jpeg" alt="뉴스 이미지 2">
+              <p>고금리 장기화에… 원/달러 환율, 1400원 넘을까</p>
+          </div>
+      </a>
 
-    <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do;JSESSIONID_KITA=1F029AC823C04F597D274DA208C0DBE9.Hyper?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=78564" target='_blank'>
+      <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=79272" target='_blank'>
         <div class="newsletter">
-            <!-- <h2>뉴스레터 2</h2> -->
-            <img src="https://www.kita.net/board/imageSrc.do?path=20231011&physical=39985AE0CDA4438AB2EE122CEFA58BAE&contentType=image/jpeg" alt="뉴스 이미지 2">
-            <p>고금리 장기화에… 원/달러 환율, 1400원 넘을까</p>
+            <!-- <h2>뉴스레터 3</h2> -->
+            <img src="https://emg.yna.co.kr/photo/yna/YH/2023/11/07/PYH2023110717710001300_P2.jpg" alt="뉴스 이미지 3">
+            <p>원/달러 환율, 美 국채 금리 하락 속 소폭 내림세</p>
         </div>
-    </a>
-    </div>
-<script type="text/javascript" src="exchangeRate.js"></script> 
+      </a>
 
-<div class="instructions">
-  <h2>환율 변환 방법</h2><br><br><br>
-    <ol class="steps">
-        <li>
-            <div class="step-box">1</div>
-            <p class="step-text">금액 입력</p>
-            <p class="step-description">변환할 금액을 상자에 입력하세요.</p>
-        </li>
-        <li>
-            <div class="step-box">2</div>
-            <p class="step-text">통화 선택</p>
-            <p class="step-description">드롭다운을 클릭하여 변환할 통화를 선택하세요.</p>
-        </li>
-        <li>
-            <div class="step-box">3</div>
-            <p class="step-text">이상입니다.</p>
-            <p class="step-description">환율계산기에 현재 환율 및 지난 1일, 1주일 또는 1개월간 변화된 환율이 표시됩니다.</p>
-        </li>
-    </ol>
-  </div>
+      <a href="https://www.kita.net/cmmrcInfo/ehgtGnrlzInfo/ehgtNewsDetail.do?pageIndex=1&nGubun=&sText=&sStartDt=&sEndDt=&sOrder=&sClassification=&searchWord=&searchCondition=&sDate1=&sDate2=&actionName=&sNo=79275" target='_blank'>
+        <div class="newsletter">
+            <!-- <h2>뉴스레터 4</h2> -->
+            <img src="https://emg.yna.co.kr/etc/inner/KR/2023/11/08/AKR20231108012900071_01_i.jpg" alt="뉴스 이미지 4">
+            <p>美, 중국 등 6개국 환율관찰대상국으로 지정…한국은 제외</p>
+        </div>
+      </a>
+    </section>
+    <script type="text/javascript" src="exchangeRate.js"></script> 
+    <br>
+    <hr>
+
+    <section id="section3">
+        <!-- <h2>Section 3</h2> -->
+        <div class="instructions">
+          <h2>환율 변환 방법</h2><br><br><br>
+            <ol class="steps">
+                <li>
+                    <div class="step-box">1</div>
+                    <p class="step-text">금액 입력</p>
+                    <p class="step-description">변환할 금액을 상자에 입력하세요.</p>
+                </li>
+                <li>
+                    <div class="step-box">2</div>
+                    <p class="step-text">통화 선택</p>
+                    <p class="step-description">드롭다운을 클릭하여 변환할 통화를 선택하세요.</p>
+                </li>
+                <li>
+                    <div class="step-box">3</div>
+                    <p class="step-text">이상입니다.</p>
+                    <p class="step-description">환율계산기에 현재 환율 및 지난 1일, 1주일 또는 1개월간 변화된 환율이 표시됩니다.</p>
+                </li>
+            </ol>
+          </div>
+    </section>
 </body>
 </html>
