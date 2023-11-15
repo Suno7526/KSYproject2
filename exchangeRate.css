@@ -2,27 +2,32 @@
   --primaryColor:rgb(38, 82, 166);
 }
 
-* {
-  box-sizing: border-box;
-}
-hr{
-  color: ;
+header {
+  border: #9fe870 solid 2px;
+  padding: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 body {
+  margin: 0%;
   text-align: center;
-  margin: 100px;
-  font-family: Arial, Helvetica, sans-serif;
-  display: inline-block;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 20px;
-  background-color: #0da158;
+  background-color: #9fe870;
 }
 div{
   display: inline-block;
   text-align: center;
+  
+}
+.menu{
+  color: #000000;
+  text-decoration:none;
+  font-size: 20px;
+  padding-right: 100px;
+}
+.tab{
+  color: #ffffff;
 }
 .container {
   text-align: center;
@@ -38,8 +43,8 @@ div{
   /* transform: translate(1px); */
   box-shadow: 1px 1px 5px rgba(147, 158, 167, 0.5);
 }
-h1 {
-  color: var(--primaryColor);
+h1{
+  font-size: 50px;
 }
 p {
   text-align: center;
@@ -61,6 +66,7 @@ p {
 }
 .money-img2{
   top: 100px;
+  padding: 50px;
 }
 .currency {
   padding: 40px 0;
@@ -158,6 +164,7 @@ select:focus, input:focus, button:focus {
 .step-box {
   width: 40px;
   height: 40px;
+  padding: 0%;
   background-color: #ccc;
   border-radius: 50%;
   display: flex;
@@ -189,16 +196,7 @@ select:focus, input:focus, button:focus {
   border-radius: 4px;
 }
 
-#insert {
-font-style: italic ; 
-font-weight: bold; 
-font-size: 1.5em;
-line-height: 1.0em; 
-color: navy;
-font-family: arial;
-}
-
-nav {
+#sidebar{
 background-color: #f2f2f2;
 padding: 10px;
 position: fixed;
@@ -221,7 +219,7 @@ display: block;
 border: 1px solid gray;
 border-width: 0 0 1px;
 }
-#section2{
-  display: inline-block;
-  text-align: center;
+#section2,#section3{
+  padding-top: 100px;
+  border: #333;
 }
