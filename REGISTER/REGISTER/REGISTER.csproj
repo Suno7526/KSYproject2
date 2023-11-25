@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F7BBECC-1D41-4BE6-85D8-AD445E1A6C86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>REGISTER</RootNamespace>
+    <AssemblyName>REGISTER</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\oraclexe\app\oracle\product\11.2.0\server\odp.net\bin\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBClass.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lecture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lecture.Designer.cs">
+      <DependentUpon>Lecture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mem_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mem_edit.Designer.cs">
+      <DependentUpon>mem_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mypage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mypage.Designer.cs">
+      <DependentUpon>mypage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lecture.resx">
+      <DependentUpon>Lecture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mem_edit.resx">
+      <DependentUpon>mem_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mypage.resx">
+      <DependentUpon>mypage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\&amp;6I97CG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\다운로드.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-bright-and-beautiful-gradient-background-light-blue-picture-image_1282933.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f7481b00895207346c102c880b0241bd_t.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f7481b00895207346c102c880b0241bd_t1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktop-wallpaper-blue-gradient-backgrounds-cute-1600x1200-for-your-mobile-tablet-light-blue-gradient.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-illustration-of-online-lecture_434471-800.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-illustration-of-online-lecture_434471-800-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_375581544_r5aDqkhnhrqy15AdaqKXUI30MMtL8IIq-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-vector-business-men-icon-png-image_925963.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-vector-business-men-icon-png-image_925963-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\다운로드-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\다운로드-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c35d0a198b1c18e9a63406998c634310_t.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\캡처-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-id-card-icon-design-vector-png-image_5100603-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-in-the-style-of-light-sky-blue-and-light-pink-vector-png-image_12277753-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__1_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44463-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-sky-blue-circle-blue-bubbles-s-blue-angle-teal-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-sky-blue-circle-blue-bubbles-s-blue-angle-teal-thumbnail-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44463.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8614156f7e4c6dd7f16f9261ac076a65.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8614156f7e4c6dd7f16f9261ac076a65-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
